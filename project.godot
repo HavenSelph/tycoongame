@@ -11,5 +11,15 @@ config_version=5
 [application]
 
 config/name="TycoonGame"
+run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Scripts/Game/Globals.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=600

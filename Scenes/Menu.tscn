@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dom4m07s5nkpe"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Main.gd" id="1_gcb5c"]
+[ext_resource type="PackedScene" path="res://Objects/Coin.tscn" id="2_ov3b0"]
+[ext_resource type="Script" path="res://Scripts/Menu/StartButton.gd" id="2_xakyg"]
+[ext_resource type="Script" path="res://Scripts/SpawnCoins.gd" id="4_ykudf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d1d1p"]
+blend_mode = 3
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_gcb5c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.160784, 0.627451, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+z_index = 1
+material = SubResource("CanvasItemMaterial_d1d1p")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -87.5
+offset_right = 156.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.258824, 0.258824, 0.258824, 0.898039)
+
+[node name="StartButton" type="Button" parent="ColorRect/ColorRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -75.0
+offset_right = 135.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+action_mode = 0
+text = "Start"
+script = ExtResource("2_xakyg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/ColorRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_top = 8.5
+offset_right = 62.5
+offset_bottom = 83.5
+grow_horizontal = 2
+bbcode_enabled = true
+text = "
+[b]Money Tycoon![/b]"
+
+[node name="Coin" parent="." instance=ExtResource("2_ov3b0")]
+position = Vector2(500, -39)
+
+[node name="SpawnCoins" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+script = ExtResource("4_ykudf")

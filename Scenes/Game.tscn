@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs00iatam1cr4"]
+
+[ext_resource type="Script" path="res://Scripts/Game/Main.gd" id="1_ebje3"]
+[ext_resource type="Script" path="res://Scripts/Game/Buttons/MoneyClick.gd" id="2_6yueu"]
+[ext_resource type="Script" path="res://Scenes/Plus1.gd" id="3_itko7"]
+[ext_resource type="Script" path="res://Scenes/Plus10.gd" id="4_wkw82"]
+[ext_resource type="Script" path="res://Scenes/Plus50.gd" id="5_dgtxw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ebje3")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="BackgroundForemost" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -288.0
+offset_right = 500.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.160784, 0.627451, 1, 1)
+
+[node name="MoneyDisplayBackground" type="ColorRect" parent="Background/BackgroundForemost"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 27.0
+offset_right = 124.0
+offset_bottom = 102.0
+grow_horizontal = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="MoneyDisplayNode" type="RichTextLabel" parent="Background/BackgroundForemost/MoneyDisplayBackground"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -19.0
+offset_right = 68.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Money here"
+
+[node name="MoneyButtons" type="VBoxContainer" parent="Background/BackgroundForemost"]
+z_index = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 177.0
+offset_right = 969.0
+offset_bottom = 543.0
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Background/BackgroundForemost/MoneyButtons"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+
+[node name="MoneyDisplayBackground" type="ColorRect" parent="Background/BackgroundForemost/MoneyButtons/HSplitContainer3"]
+z_index = 1
+layout_mode = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Container" type="HSplitContainer" parent="Background/BackgroundForemost/MoneyButtons"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Inner1" type="HSplitContainer" parent="Background/BackgroundForemost/MoneyButtons/Container"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MoneyClick" type="Button" parent="Background/BackgroundForemost/MoneyButtons/Container/Inner1"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1 Per Click
+(Free)"
+script = ExtResource("2_6yueu")
+
+[node name="Plus1" type="Button" parent="Background/BackgroundForemost/MoneyButtons/Container/Inner1"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1 Per Second
+(cost)"
+script = ExtResource("3_itko7")
+
+[node name="Inner2" type="HSplitContainer" parent="Background/BackgroundForemost/MoneyButtons/Container"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Plus10" type="Button" parent="Background/BackgroundForemost/MoneyButtons/Container/Inner2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+10 Per Second
+(cost)"
+script = ExtResource("4_wkw82")
+
+[node name="Plus50" type="Button" parent="Background/BackgroundForemost/MoneyButtons/Container/Inner2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+50 PerSecond
+(cost)"
+script = ExtResource("5_dgtxw")
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Background/BackgroundForemost/MoneyButtons"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+
+[node name="MoneyDisplayBackground" type="ColorRect" parent="Background/BackgroundForemost/MoneyButtons/HSplitContainer2"]
+z_index = 1
+layout_mode = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)

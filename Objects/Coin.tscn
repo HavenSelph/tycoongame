@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://y7fvvubnuitj" path="res://Resources/coin.png" id="1_4vgrq"]
+[ext_resource type="Script" path="res://Scripts/FallingCoin.gd" id="2_jhepl"]
+
+[node name="Coin" type="Sprite2D"]
+position = Vector2(47, 30)
+scale = Vector2(0.0229167, 0.0229167)
+texture = ExtResource("1_4vgrq")
+script = ExtResource("2_jhepl")
